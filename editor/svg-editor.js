@@ -3003,6 +3003,7 @@ TODOS
 
 			$('.attr_changer').change(function() {
 				var attr = this.getAttribute('data-attr');
+				var type = this.getAttribute('type');
 				var val = this.value;
 				var valid = svgedit.units.isValidUnit(attr, val, selectedElement);
 
@@ -3012,7 +3013,9 @@ TODOS
 					return false;
 				}
 
-				if (attr !== 'id' && attr !== 'class') {
+				if (type == 'text') {
+					
+				} else if (attr !== 'id' && attr !== 'class') {
 					if (isNaN(val)) {
 						val = svgCanvas.convertToNum(attr, val);
 					} else if (curConfig.baseUnit !== 'px') {
